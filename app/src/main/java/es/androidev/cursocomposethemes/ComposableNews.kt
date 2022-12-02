@@ -14,49 +14,55 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import es.androidev.cursocomposethemes.ui.theme.CursoComposeThemesTheme
 
 
+@Preview
 @Composable
 fun ScreenNew() {
 
-    Scaffold(topBar = { AppBar() }) {
-        Column(
-            modifier = Modifier
-                .padding(it)
-                .fillMaxWidth()
+    CursoComposeThemesTheme() {
 
-        ) {
-            Image(
-                painter = painterResource(R.drawable.gasol),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-
+        Scaffold(topBar = { AppBar() }) {
+            Column(
                 modifier = Modifier
+                    .padding(it)  // Es necesario pasar los parámetros de padding del scaffold
                     .fillMaxWidth()
-                    .padding(12.dp)
-                    .clip(shape = MaterialTheme.shapes.medium)
 
-            )
-            Spacer(Modifier.height(16.dp))
-            val padding = Modifier.padding(horizontal = 16.dp)
-            Text(
-                text = stringResource(R.string.titulo),
-                style = MaterialTheme.typography.h4,
-                modifier = padding
-            )
-            Text(
-                text = stringResource(R.string.subtitulo),
-                style = MaterialTheme.typography.subtitle2,
-                modifier = padding
-            )
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.gasol),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
 
-            Text(
-                text = stringResource(R.string.contenido),
-                style = MaterialTheme.typography.body2,
-                modifier = padding
-            )
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp)
+                        .clip(shape = MaterialTheme.shapes.medium)
+
+                )
+                Spacer(Modifier.height(16.dp))
+                val padding = Modifier.padding(horizontal = 16.dp)
+                Text(
+                    text = stringResource(R.string.titulo),
+                    style = MaterialTheme.typography.h4,
+                    modifier = padding
+                )
+                Spacer(Modifier.height(16.dp))
+                Text(
+                    text = stringResource(R.string.subtitulo),
+                    style = MaterialTheme.typography.subtitle2,
+                    modifier = padding
+                )
+                Spacer(Modifier.height(16.dp))
+                Text(
+                    text = stringResource(R.string.contenido),
+                    style = MaterialTheme.typography.body2,
+                    modifier = padding
+                )
 
 
+            }
         }
     }
 
@@ -67,14 +73,9 @@ fun ScreenNew() {
 private fun AppBar() {
     TopAppBar(
         title = {
-            Text("Noticia")
+            Text(stringResource(R.string.noticia))
         },
         backgroundColor = MaterialTheme.colors.primary
     )
 }
 
-@Preview
-@Composable
-private fun PreviewScreen() {
-    ScreenNew()
-}
