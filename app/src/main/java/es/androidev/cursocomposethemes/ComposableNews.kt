@@ -22,6 +22,7 @@ fun ScreenNew() {
     Scaffold(topBar = { AppBar() }) {
         Column(
             modifier = Modifier
+                .padding(it)
                 .fillMaxWidth()
 
         ) {
@@ -56,12 +57,12 @@ fun ScreenNew() {
             )
 
 
-
         }
     }
 
 
 }
+
 @Composable
 private fun AppBar() {
     TopAppBar(
@@ -74,6 +75,6 @@ private fun AppBar() {
 
 @Preview
 @Composable
-private fun previewScreen() {
+private fun PreviewScreen() {
     ScreenNew()
 }
